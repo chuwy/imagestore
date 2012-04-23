@@ -1,7 +1,10 @@
-from django.contrib import admin
-from imagestore.models import Image, Album, AlbumUpload
-from sorl.thumbnail.admin import AdminImageMixin, AdminInlineImageMixin
 from django.conf import settings
+from django.contrib import admin
+
+from sorl.thumbnail.admin import AdminImageMixin, AdminInlineImageMixin
+
+from imagestore.models import Image, Album, AlbumUpload
+
 
 class InlineImageAdmin(AdminInlineImageMixin, admin.TabularInline):
     model = Image

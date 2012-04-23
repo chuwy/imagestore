@@ -1,22 +1,22 @@
 import uuid
 import zipfile
-from django.core.files.base import ContentFile
 import os
 
 from django.db import models
 from django.db.models import permalink
-from sorl.thumbnail.helpers import ThumbnailError
-from tagging.fields import TagField
+from django.db.models.signals import post_save
+from django.core.files.base import ContentFile
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
-from sorl.thumbnail import ImageField, get_thumbnail
 from django.contrib.auth.models import User, Permission
-from django.db.models.signals import post_save
+
 try:
     import Image as PILImage
 except ImportError:
     from PIL import Image as PILImage
-
+from sorl.thumbnail import ImageField, get_thumbnail
+from sorl.thumbnail.helpers import ThumbnailError
+from tagging.fields import TagField
 try:
     from places.models import GeoPlace
 except ImportError:

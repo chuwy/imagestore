@@ -6,13 +6,14 @@ __author__ = 'zeus'
 
 from django.db import models
 from django.db.models import permalink
-from sorl.thumbnail.helpers import ThumbnailError
-from tagging.fields import TagField
+from django.db.models.signals import post_save
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
-from sorl.thumbnail import ImageField, get_thumbnail
 from django.contrib.auth.models import User, Permission
-from django.db.models.signals import post_save
+
+from tagging.fields import TagField
+from sorl.thumbnail import ImageField, get_thumbnail
+from sorl.thumbnail.helpers import ThumbnailError
 try:
     import Image as PILImage
 except ImportError:
