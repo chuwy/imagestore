@@ -15,7 +15,8 @@ class AlbumAdmin(admin.ModelAdmin):
     list_editable = ('order', )
     inlines = [InlineImageAdmin]
 
-admin.site.register(Album, AlbumAdmin)
+# TODO: branch backend_problem
+#admin.site.register(Album, AlbumAdmin)
 
 class ImageAdmin(admin.ModelAdmin):
     fieldsets = ((None, {'fields': ['user', 'title', 'image', 'description', 'order', 'tags', 'album']}),)
@@ -32,5 +33,5 @@ if not IMAGE_MODEL:
     admin.site.register(Image, ImageAdmin)
 
 ALBUM_MODEL = getattr(settings, 'IMAGESTORE_ALBUM_MODEL', None)
-if not ALBUM_MODEL:
-    admin.site.register(AlbumUpload, AlbumUploadAdmin)
+
+admin.site.register(AlbumUpload, AlbumUploadAdmin)
